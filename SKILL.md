@@ -4,22 +4,19 @@ description: MUST be loaded before working with any subagent. Covers creating, b
 ---
 
 <essential_principles>
-## What Are Subagents?
-
 Subagents are pre-configured AI assistants that Claude Code delegates tasks to. Each subagent:
 - Has a specific purpose and expertise area
 - Uses its own context window separate from the main conversation
 - Can be configured with specific tools it's allowed to use
 - Includes a custom system prompt guiding its behavior
 
-## Key Benefits
-
+**Key Benefits:**
 - **Context preservation**: Prevents pollution of main conversation
 - **Specialized expertise**: Fine-tuned instructions for specific domains
 - **Reusability**: Use across projects, share with teams
 - **Flexible permissions**: Different tool access per subagent
 
-## File Locations
+**File Locations:**
 
 | Type | Location | Scope | Priority |
 |------|----------|-------|----------|
@@ -28,7 +25,7 @@ Subagents are pre-configured AI assistants that Claude Code delegates tasks to. 
 
 Project-level subagents take precedence when names conflict.
 
-## File Format (Required)
+**File Format (Required):**
 
 ```markdown
 ---
@@ -46,7 +43,7 @@ capabilities, and approach to solving problems.
 Include specific instructions, best practices, and constraints.
 ```
 
-## Configuration Fields
+**Configuration Fields:**
 
 | Field | Required | Description |
 |-------|----------|-------------|
@@ -57,7 +54,7 @@ Include specific instructions, best practices, and constraints.
 | `permissionMode` | No | `default`, `acceptEdits`, `bypassPermissions`, `plan`, `ignore` |
 | `skills` | No | Comma-separated skills to auto-load |
 
-## Built-in Subagents
+**Built-in Subagents:**
 
 Claude Code includes these built-in subagents:
 
@@ -65,7 +62,7 @@ Claude Code includes these built-in subagents:
 - **Explore**: Fast read-only codebase exploration (Haiku)
 - **Plan**: Research during plan mode (Sonnet)
 
-## Using the Task Tool
+**Using the Task Tool:**
 
 The Task tool launches subagents. Required parameters:
 - `description`: Short (3-5 word) summary
@@ -116,7 +113,7 @@ What would you like to do?
 </routing>
 
 <quick_reference>
-## Quick Commands
+**Quick Commands:**
 
 **Create agent interactively:**
 ```
@@ -146,7 +143,7 @@ What would you like to do?
 </quick_reference>
 
 <reference_index>
-## Domain Knowledge
+**Domain Knowledge:**
 
 All in `references/`:
 
@@ -159,7 +156,7 @@ All in `references/`:
 </reference_index>
 
 <workflows_index>
-## Workflows
+**Workflows:**
 
 All in `workflows/`:
 

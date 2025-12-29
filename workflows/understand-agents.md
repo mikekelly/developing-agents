@@ -1,3 +1,9 @@
+<required_reading>
+For deeper understanding, optionally read:
+- references/best-practices.md
+- references/agent-configuration.md
+</required_reading>
+
 <objective>
 Explain how Claude Code subagents work, including the Task tool, context management, and delegation patterns.
 </objective>
@@ -125,3 +131,12 @@ A: No, subagents cannot spawn other subagents to prevent infinite nesting.
 **Q: How do I debug agent behavior?**
 A: Use explicit invocation and review the output. Check if tools and prompt match expectations.
 </common_questions>
+
+<success_criteria>
+Understanding is complete when user can answer:
+- [ ] What is the difference between main conversation and subagent context?
+- [ ] How does the Task tool invoke subagents?
+- [ ] When should I create a custom agent vs use built-in?
+- [ ] What triggers automatic vs explicit invocation?
+- [ ] How do I resume a previous agent conversation?
+</success_criteria>
