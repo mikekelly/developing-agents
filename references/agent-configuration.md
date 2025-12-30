@@ -121,7 +121,7 @@ Skills provide domain-specific knowledge and workflows. The platforms handle thi
 | Native support | Yes (`skills:` field) | No (use workarounds) |
 | Syntax | `skills: skill1, skill2` | `{file:path/to/skill.md}` |
 | Inheritance | Must list explicitly | Must embed explicitly |
-| Location | `~/.claude/skills/`, `.claude/skills/` | Custom (suggest `~/.config/opencode/skills/`) |
+| Location | `~/.claude/skills/`, `.claude/skills/` | Custom (suggest `~/.config/opencode/skill/`) |
 
 **Claude Code approach:**
 ```yaml
@@ -136,8 +136,8 @@ skills: commit, review-pr
 ---
 description: Handles commits and PRs
 prompt: |
-  {file:~/.config/opencode/skills/commit.md}
-  {file:~/.config/opencode/skills/review-pr.md}
+  {file:~/.config/opencode/skill/commit.md}
+  {file:~/.config/opencode/skill/review-pr.md}
 ---
 ```
 

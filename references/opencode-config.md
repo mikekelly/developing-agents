@@ -193,8 +193,8 @@ Use `{file:...}` syntax to include skill content:
 prompt: |
   You are a PR assistant.
 
-  {file:~/.config/opencode/skills/commit-guidelines.md}
-  {file:~/.config/opencode/skills/pr-review.md}
+  {file:~/.config/opencode/skill/commit-guidelines.md}
+  {file:~/.config/opencode/skill/pr-review.md}
 ```
 
 Or in JSON config:
@@ -217,7 +217,7 @@ Organize reusable skill content:
 ~/.config/opencode/
 ├── agent/
 │   └── pr-assistant.md
-└── skills/           # Create this directory
+└── skill/            # Create this directory
     ├── commit.md
     ├── code-review.md
     └── testing.md
@@ -226,8 +226,8 @@ Organize reusable skill content:
 Then reference in agent prompts:
 ```yaml
 prompt: |
-  {file:~/.config/opencode/skills/commit.md}
-  {file:~/.config/opencode/skills/code-review.md}
+  {file:~/.config/opencode/skill/commit.md}
+  {file:~/.config/opencode/skill/code-review.md}
 ```
 
 ### Discovering Relevant Skills
