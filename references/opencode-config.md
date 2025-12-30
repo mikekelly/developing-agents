@@ -169,12 +169,12 @@ Include skill content directly in the agent's markdown body:
 
 ```markdown
 ---
-description: PR workflow specialist
+description: Handles commits and pull requests
 mode: subagent
 model: anthropic/claude-sonnet-4-20250514
 ---
 
-You are a PR workflow specialist.
+You are a PR assistant.
 
 <commit_guidelines>
 [Embed relevant commit skill content here]
@@ -191,7 +191,7 @@ Use `{file:...}` syntax to include skill content:
 
 ```yaml
 prompt: |
-  You are a PR workflow specialist.
+  You are a PR assistant.
 
   {file:~/.config/opencode/skills/commit-guidelines.md}
   {file:~/.config/opencode/skills/pr-review.md}
@@ -201,10 +201,10 @@ Or in JSON config:
 ```json
 {
   "agent": {
-    "pr-workflow": {
+    "pr-assistant": {
       "mode": "subagent",
-      "description": "Handles PR workflow",
-      "prompt": "{file:./prompts/pr-workflow-with-skills.md}"
+      "description": "Handles commits and PRs",
+      "prompt": "{file:./prompts/pr-assistant.md}"
     }
   }
 }
@@ -216,7 +216,7 @@ Organize reusable skill content:
 ```
 ~/.config/opencode/
 ├── agent/
-│   └── pr-workflow.md
+│   └── pr-assistant.md
 └── skills/           # Create this directory
     ├── commit.md
     ├── code-review.md

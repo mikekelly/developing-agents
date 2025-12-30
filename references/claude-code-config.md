@@ -148,14 +148,14 @@ Match skills to your agent's purpose:
 **Example with Skills:**
 ```yaml
 ---
-name: pr-workflow
-description: Handles complete PR workflow. Use after completing a feature.
+name: pr-assistant
+description: Handles commits and PRs. Use after completing a feature.
 tools: Read, Grep, Glob, Bash, Edit
 model: sonnet
 skills: commit, review-pr
 ---
 
-You are a PR workflow specialist...
+You are a PR assistant...
 ```
 
 **Skills vs Tools:**

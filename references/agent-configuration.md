@@ -126,7 +126,7 @@ Skills provide domain-specific knowledge and workflows. The platforms handle thi
 **Claude Code approach:**
 ```yaml
 ---
-name: pr-workflow
+name: pr-assistant
 skills: commit, review-pr
 ---
 ```
@@ -134,7 +134,7 @@ skills: commit, review-pr
 **OpenCode approach:**
 ```yaml
 ---
-description: PR workflow
+description: Handles commits and PRs
 prompt: |
   {file:~/.config/opencode/skills/commit.md}
   {file:~/.config/opencode/skills/review-pr.md}
