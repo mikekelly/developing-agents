@@ -159,6 +159,94 @@ Disable the agent without deleting:
 disable: true
 ```
 
+## Adding Domain Knowledge (Skills Equivalent)
+
+OpenCode doesn't have a native `skills:` field like Claude Code. Instead, incorporate domain knowledge through these methods:
+
+### Method 1: Embed in System Prompt
+
+Include skill content directly in the agent's markdown body:
+
+```markdown
+---
+description: PR workflow specialist
+mode: subagent
+model: anthropic/claude-sonnet-4-20250514
+---
+
+You are a PR workflow specialist.
+
+<commit_guidelines>
+[Embed relevant commit skill content here]
+</commit_guidelines>
+
+<pr_review_checklist>
+[Embed PR review skill content here]
+</pr_review_checklist>
+```
+
+### Method 2: Reference External Files
+
+Use `{file:...}` syntax to include skill content:
+
+```yaml
+prompt: |
+  You are a PR workflow specialist.
+
+  {file:~/.config/opencode/skills/commit-guidelines.md}
+  {file:~/.config/opencode/skills/pr-review.md}
+```
+
+Or in JSON config:
+```json
+{
+  "agent": {
+    "pr-workflow": {
+      "mode": "subagent",
+      "description": "Handles PR workflow",
+      "prompt": "{file:./prompts/pr-workflow-with-skills.md}"
+    }
+  }
+}
+```
+
+### Method 3: Create Skill Prompt Library
+
+Organize reusable skill content:
+```
+~/.config/opencode/
+├── agent/
+│   └── pr-workflow.md
+└── skills/           # Create this directory
+    ├── commit.md
+    ├── code-review.md
+    └── testing.md
+```
+
+Then reference in agent prompts:
+```yaml
+prompt: |
+  {file:~/.config/opencode/skills/commit.md}
+  {file:~/.config/opencode/skills/code-review.md}
+```
+
+### Discovering Relevant Skills
+
+Check what Claude Code skills are available (can adapt for OpenCode):
+```bash
+ls ~/.claude/skills/
+ls .claude/skills/
+```
+
+**Matching Skills to Agent Purpose:**
+
+| Agent Purpose | Skill Content to Include |
+|---------------|--------------------------|
+| Code reviewer | Style guides, review checklists |
+| Git workflow | Commit conventions, PR templates |
+| Documentation | Writing guidelines |
+| UI development | Design system rules |
+
 ## Invoking Agents
 
 ### Manual Invocation

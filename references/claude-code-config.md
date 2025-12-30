@@ -112,13 +112,57 @@ How the agent handles permission requests.
 
 ### skills
 
-Skills to auto-load when agent starts.
+Skills to auto-load when agent starts. Skills provide domain-specific knowledge and workflows.
 
 **Important:** Subagents do NOT inherit skills from parent. Must list explicitly.
 
 ```yaml
 skills: commit, review-pr
 ```
+
+**Discovering Available Skills:**
+
+Before assigning skills, check what's available:
+1. User skills: `~/.claude/skills/` (available to all projects)
+2. Project skills: `.claude/skills/` (project-specific)
+3. Plugin skills: From installed plugins
+
+List skill directories:
+```bash
+ls ~/.claude/skills/
+ls .claude/skills/
+```
+
+**How to Choose Relevant Skills:**
+
+Match skills to your agent's purpose:
+
+| Agent Purpose | Relevant Skills |
+|---------------|-----------------|
+| Code reviewer | `developing-skills`, style guides |
+| Git workflow | `commit`, `review-pr` |
+| Documentation | `developing-ai-prompts` |
+| UI development | `ui-ux-pro-max` |
+| Agent/subagent work | `developing-subagents` |
+
+**Example with Skills:**
+```yaml
+---
+name: pr-workflow
+description: Handles complete PR workflow. Use after completing a feature.
+tools: Read, Grep, Glob, Bash, Edit
+model: sonnet
+skills: commit, review-pr
+---
+
+You are a PR workflow specialist...
+```
+
+**Skills vs Tools:**
+- **Tools** = capabilities (Read, Write, Bash)
+- **Skills** = knowledge (how to write commits, review PRs)
+
+An agent can have tools without skills, or skills without certain tools.
 
 ## Using the Task Tool
 

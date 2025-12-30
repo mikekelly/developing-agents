@@ -112,6 +112,37 @@ permission:
 | `haiku` | `anthropic/claude-haiku-4-20250514` |
 | `inherit` | (use parent model) |
 
+### Skills / Domain Knowledge
+
+Skills provide domain-specific knowledge and workflows. The platforms handle this differently:
+
+| Aspect | Claude Code | OpenCode |
+|--------|-------------|----------|
+| Native support | Yes (`skills:` field) | No (use workarounds) |
+| Syntax | `skills: skill1, skill2` | `{file:path/to/skill.md}` |
+| Inheritance | Must list explicitly | Must embed explicitly |
+| Location | `~/.claude/skills/`, `.claude/skills/` | Custom (suggest `~/.config/opencode/skills/`) |
+
+**Claude Code approach:**
+```yaml
+---
+name: pr-workflow
+skills: commit, review-pr
+---
+```
+
+**OpenCode approach:**
+```yaml
+---
+description: PR workflow
+prompt: |
+  {file:~/.config/opencode/skills/commit.md}
+  {file:~/.config/opencode/skills/review-pr.md}
+---
+```
+
+**Key principle:** Subagents don't inherit skills from parent - you must explicitly assign relevant skills to each agent.
+
 ## Migration Guide
 
 ### Claude Code → OpenCode

@@ -152,3 +152,20 @@ All in `workflows/`:
 | update-agent.md | Modify existing agent configuration |
 | understand-agents.md | Learn how subagents work |
 </workflows_index>
+
+<external_documentation>
+**Official Documentation:**
+
+If this skill doesn't answer your question, consult the official platform documentation:
+
+| Platform | Documentation URL |
+|----------|-------------------|
+| Claude Code | https://code.claude.com/docs/en/sub-agents.md |
+| OpenCode | https://opencode.ai/docs/agents.md |
+
+Use WebFetch to retrieve these docs when needed for:
+- Latest API changes or new features
+- Edge cases not covered in this skill
+- Platform-specific implementation details
+- Troubleshooting specific error messages
+</external_documentation>
